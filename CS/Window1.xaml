@@ -1,0 +1,19 @@
+﻿<Window x:Class="WpfApplication1.Window1" 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" 
+        xmlns:local="clr-namespace:WpfApplication1" 
+        Title="Window1" Height="400" Width="500">
+    <dxg:GridControl Name="grid" DataSource="{x:Static local:NWindData.Products}">
+        <dxg:GridControl.Columns>
+            <dxg:GridColumn FieldName="ProductName" />
+            <dxg:GridColumn FieldName="CategoryID" 
+                            EditSettings="{dxe:ComboBoxSettings IsTextEditable=false, ValueMember=CategoryID, DisplayMember=CategoryName, ItemsSource={x:Static local:NWindData.Categories}}" />
+        </dxg:GridControl.Columns>
+        <dxg:GridControl.View>
+            <dxg:TableView AutoWidth="True" EditorButtonShowMode="ShowAlways" NavigationStyle="Cell" />
+        </dxg:GridControl.View>
+    </dxg:GridControl>
+</Window>
